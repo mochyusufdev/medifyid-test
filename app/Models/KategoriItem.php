@@ -2,18 +2,19 @@
 
 namespace App\Models;
 
-use App\Models\KategoriItem;
+use App\Models\MasterItem;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class MasterItem extends Model
+class KategoriItem extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
-    public function kategori()
+
+    public function masterItems()
     {
-        return $this->belongsTo(KategoriItem::class, 'kategori_id');
+        return $this->hasMany(MasterItem::class, 'kategori_id');
     }
 }
